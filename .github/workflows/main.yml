@@ -57,11 +57,6 @@ jobs:
         uses: ianwalter/puppeteer-container@v4.0.0
         with:
           args: npm run report
-      - name: Generate Report
-        if: ${{ always() }}
-        uses: ianwalter/puppeteer-container@v4.0.0
-        with:
-          args: npm run report
       - name: Upload Artifacts
         if: ${{ always() }}
         uses: actions/upload-artifact@v1
@@ -74,4 +69,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
-          publish_branch: update-docs
